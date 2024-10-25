@@ -1,4 +1,4 @@
-<center><img src="ai16z.logo" width="30%" style="padding: 2em" />
+<center><img src="logo.jpg" width="30%" style="padding: 2em" />
 
 # About ai16z
 
