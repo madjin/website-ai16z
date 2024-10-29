@@ -485,7 +485,6 @@
         });
 
         let timeoutId;
-        let dropDownHide = true;
         const DROPDOWN_HIDE_DELAY = 200;
 
         const dropdown = document.querySelector('.dropdown');
@@ -494,25 +493,21 @@
         dropdown.addEventListener('mouseenter', () => {
             clearTimeout(timeoutId);
             dropdownContent.style.display = 'block';
-            dropDownHide = false;
         });
 
         dropdown.addEventListener('mouseleave', () => {
             timeoutId = setTimeout(() => {
                 dropdownContent.style.display = 'none';
-                dropDownHide = true;
             }, DROPDOWN_HIDE_DELAY);
         });
 
         dropdownContent.addEventListener('mouseenter', () => {
             clearTimeout(timeoutId);
             dropdownContent.style.display = 'block';
-            dropDownHide = false;
         });
 
         dropdownContent.addEventListener('mouseleave', () => {
             dropdownContent.style.display = 'none';
-            dropDownHide = true;
         });
 
 
