@@ -123,10 +123,10 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        overflow: hidden;
     }
 
     .faq-background-wrapper .topo-pattern {
-        
         object-fit: cover;
         animation: zoom-in-out 30s ease-in-out infinite;
         opacity: 0.3;
@@ -508,6 +508,12 @@
 
         dropdownContent.addEventListener('mouseleave', () => {
             dropdownContent.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!dropdown.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.style.display = 'none';
+            }
         });
 
 
