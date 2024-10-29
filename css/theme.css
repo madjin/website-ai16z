@@ -224,7 +224,8 @@ a {
 #header,#header>.container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center
+    align-items: center;
+    justify-content: space-between;
 }
 
 #header>.container {
@@ -235,7 +236,8 @@ a {
 #header .logo {
     color: var(--header-logo,var(--header-color,#40474f));
     width: 130px;
-    transition: all .3s ease-in-out
+    transition: all .3s ease-in-out;
+    margin-left: 5%;
 }
 
 #header .logo svg {
@@ -252,17 +254,17 @@ a {
     max-width: 1530px
 }
 
-@media (max-width: 2499px) {
+/* @media (max-width: 2499px) {
     .container {
         max-width:1416px
     }
-}
+} */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container {
         padding:0 58px
     }
-}
+} */
 
 .link {
     transition: color .3s ease-in-out;
@@ -317,7 +319,8 @@ a {
 #footer .inner {
     background: var(--f-bg,#4b5058);
     padding: 60px 0 50px;
-    position: relative
+    position: relative;
+    width: 100vw;
 }
 
 @media (max-width: 1023px) {
