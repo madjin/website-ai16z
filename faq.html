@@ -13,162 +13,341 @@
     <link rel="stylesheet" id="base-theme-style-css" href="css/theme.css" type="text/css" media="all">
     
     <style>
-        /* FAQ Specific Styles */
-        .faq-section {
-            padding: 120px 0;
-            position: relative;
-            z-index: 1;
-            min-height: calc(100vh - 85px);
-            overflow: hidden;
-            background: #f6f7f7;
-        }
+	/* Reset Styles */
+	html, body {
+		overflow-x: hidden;
+		overflow-y: auto; /* Enable vertical scrolling on the whole page */
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
 
-        @media (max-width: 1279px) {
-            .faq-section {
-                padding: 100px 0;
-            }
-        }
+	/* Layout Structure */
+	#wrapper {
+		position: relative;
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		min-width: 100%;
+		margin: 0;
+		padding: 0;
+	}
 
-        @media (max-width: 1023px) {
-            .faq-section {
-                padding: 80px 0;
-            }
-        }
+	.w1 {
+		display: table-row-group;
+		width: 100%;
+	}
 
-        @media (max-width: 767px) {
-            .faq-section {
-                padding: 47px 0 112px;
-            }
-        }
+	/* Header & Navigation */
+	#header {
+		position: sticky;
+		top: 0;
+		z-index: 9998;
+		background: #fff;
+		box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+	}
 
-        .faq-section .container {
-            max-width: 1340px;
-            position: relative;
-            z-index: 1;
-        }
+	.dropdown {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
 
-        .faq-section .topo-pattern-wrapper {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-        }
+	.dropdown-button {
+		background: none;
+		border: none;
+		color: #333;
+		font-size: 24px;
+		cursor: pointer;
+		padding: 10px;
+		transition: color 0.3s ease;
+	}
 
-        .faq-section .topo-pattern {
+	.dropdown-button:hover {
+		color: #ed8c00;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 100%;
+		background-color: #fff;
+		min-width: 180px;
+		box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+		z-index: 9999;
+		border-radius: 8px;
+		margin-top: 8px;
+	}
+
+	.dropdown-content a {
+		color: #333;
+		padding: 14px 18px;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		transition: all 0.3s ease;
+	}
+
+	.dropdown-content a i {
+		width: 20px;
+		text-align: center;
+		font-size: 16px;
+	}
+
+	.dropdown-content a:hover {
+		background-color: #f8f9fa;
+		color: #ed8c00;
+	}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	/* FAQ Section */
+	.faq-section {
+		padding: 120px 0;
+		position: relative;
+		z-index: 1;
+		min-height: calc(100vh - 85px);
+		overflow-y: auto; /* Allow vertical scrolling */
+		background: #f6f7f7;
+	}
+
+	.faq-section .container {
+		position: relative;
+		z-index: 1;
+		margin: 0 auto;
+		padding: 0 24px;
+		overflow-y: auto; /* Allow vertical scrolling */
+	}
+
+	.faq-section .topo-pattern-wrapper {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100vh;
+	}
+
+	.faq-section .topo-pattern {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		object-fit: cover;
+		object-position: center;
+		animation: zoom-in-out 30s ease-in-out infinite;
+		opacity: 0.3;
+	}
+
+	.faq-title {
+		font: 700 54px/1.2 proxima-nova, Helvetica Neue, Arial, Helvetica, sans-serif;
+		letter-spacing: -.03em;
+		color: #ed8c00;
+		margin-bottom: 40px;
+		opacity: 0;
+		transform: translateX(-50px);
+		animation: slideFromLeft 2s forwards;
+	}
+
+	.faq-container {
+		margin: 0 auto;
+		opacity: 0;
+		transform: translateY(-50px);
+		animation: slideFromAbove 1.5s forwards;
+	}
+
+	.faq-item {
+		background: #fff;
+		border-radius: 12px;
+		margin-bottom: 16px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		overflow: hidden;
+		transition: transform 0.3s ease;
+	}
+
+	.faq-item:hover {
+		transform: translateY(-2px);
+	}
+
+	.faq-question {
+		width: 100%;
+		text-align: left;
+		padding: 24px 28px;
+		background: none;
+		border: none;
+		font: 500 20px/1.4 proxima-nova, Helvetica Neue, Arial, Helvetica, sans-serif;
+		color: #3c3e43;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: all 0.3s ease;
+	}
+
+	.faq-question:hover {
+		background-color: #f8f9fa;
+		color: #ed8c00;
+	}
+
+	.faq-question i {
+		transition: transform 0.3s ease;
+		font-size: 16px;
+		opacity: 0.7;
+		margin-left: 16px;
+	}
+
+	.faq-question.active {
+		color: #ed8c00;
+	}
+
+	.faq-question.active i {
+		transform: rotate(180deg);
+		opacity: 1;
+	}
+
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: all 0.3s ease-out;
+		padding: 0 28px;
+		font: 300 18px/1.6 proxima-nova, Helvetica Neue, Arial, Helvetica, sans-serif;
+		color: #4b5058;
+		opacity: 0;
+	}
+
+	.faq-answer.active {
+		max-height: 500px;
+		padding: 0 28px 28px;
+		opacity: 1;
+	}
+
+        /* Dropdown Menu Styles */
+        .dropdown {
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            object-fit: cover;
-            object-position: center;
-            animation: zoom-in-out 30s ease-in-out infinite;
+            top: 20px;
+            right: 20px;
         }
 
-        .faq-title {
-            font: 700 54px/1.2 proxima-nova, Helvetica Neue, Arial, Helvetica, sans-serif;
-            letter-spacing: -.03em;
-            color: #ed8c00;
-            margin-bottom: 27px;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideFromLeft 2s forwards;
-        }
-
-        .faq-container {
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: slideFromAbove 1.5s forwards;
-        }
-
-        .faq-item {
-            background: #fff;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            padding: 24px;
+        .dropdown-button {
             background: none;
             border: none;
-            font: 500 20px/1.4 proxima-nova, Helvetica Neue, Arial, Helvetica, sans-serif;
-            color: #3c3e43;
+            color: #333;
+            font-size: 24px;
             cursor: pointer;
+            padding: 10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Contract Address Styles */
+        .contract-addresses {
+            margin-top: 20px;
+            font-family: monospace;
+            color: #fff;
+        }
+
+        .contract-addresses p {
+            margin: 5px 0;
+        }
+
+        .contract-addresses strong {
+            margin-right: 10px;
+        }
+
+        .footer-content {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: background-color 0.3s ease;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .faq-question:hover {
-            background-color: #f8f9fa;
+        .footer-left {
+            flex: 1;
+            min-width: 200px;
         }
 
-        .faq-question i {
-            transition: transform 0.3s ease;
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
         }
 
-        .faq-question.active i {
-            transform: rotate(180deg);
+        .contract-addresses {
+            margin: 0;
+            text-align: right;
         }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            padding: 0 24px;
-            font: 300 18px/1.6 proxima-nova, Helvetica Neue, Arial, Helvetica, sans-serif;
-            color: #4b5058;
-        }
-
-        .faq-answer.active {
-            max-height: 500px;
-            padding: 0 24px 24px 24px;
-        }
-
-        @keyframes slideFromLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideFromAbove {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 1023px) {
-            .faq-title {
-                font-size: 42px;
-            }
+        .social-networks {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 15px;
         }
 
         @media (max-width: 767px) {
-            .faq-title {
-                font-size: 38px;
-                letter-spacing: -.015em;
-                margin-bottom: 20px;
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            
-            .faq-question {
-                font-size: 18px;
-                padding: 20px;
+
+            .footer-right {
+                align-items: center;
             }
-            
-            .faq-answer {
-                font-size: 16px;
+
+            .contract-addresses {
+                text-align: center;
+            }
+
+            footer img {
+                padding: 0 !important;
             }
         }
+
+
+
+		
     </style>
+    <link rel="stylesheet" id="base-theme-style-css" href="css/theme.css" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="images/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ai16z" />    
+    
 </head>
 <body class="page-faq">
     <div id="wrapper">
@@ -184,25 +363,26 @@
                         </svg>
                     </a>
                     
-                    <div class="dropdown">
-                        <button class="dropdown-button">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="https://x.com/pmairca" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-twitter"></i> Twitter
-                            </a>
-                            <a href="https://discord.gg/xe7HtWru" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-brands fa-discord"></i> Discord
-                            </a>
-                            <a href="https://github.com/ai16z" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="https://www.daos.fun/HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-project-diagram"></i> DAO
-                            </a>
-                        </div>
+                <!-- Added Dropdown Menu -->
+                <div class="dropdown">
+                    <button class="dropdown-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="https://x.com/pmairca" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="https://discord.gg/xe7HtWru" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-discord"></i> Discord
+                        </a>
+                        <a href="https://github.com/ai16z" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.daos.fun/HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-project-diagram"></i> DAO
+                        </a>
                     </div>
+                </div>
                 </div>
             </header>
 
