@@ -20,79 +20,114 @@
     <meta name="apple-mobile-web-app-title" content="ai16z" />
 
     <style>
-        /* FAQ Page Specific Styles */
-        .faq-section {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .dropdown-button {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Contract Address Styles */
+        .contract-addresses {
+            margin-top: 20px;
+            font-family: monospace;
             color: #fff;
         }
 
-        .faq-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5em;
-            color: #fff;
+        .contract-addresses p {
+            margin: 5px 0;
         }
 
-        .faq-container {
+        .contract-addresses strong {
+            margin-right: 10px;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-right {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            align-items: flex-end;
+            gap: 20px;
         }
 
-        .faq-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
+        .contract-addresses {
+            margin: 0;
+            text-align: right;
         }
 
-        .faq-question {
+        .social-networks {
+            margin: 0;
+            padding: 0;
+            list-style: none;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            cursor: pointer;
-            font-size: 1.1em;
-            color: #fff;
-            background: transparent;
-            border: none;
-            width: 100%;
-            text-align: left;
+            gap: 15px;
         }
 
-        .faq-question:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
+        @media (max-width: 767px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 20px;
-            color: #ccc;
-            line-height: 1.6;
-        }
+            .footer-right {
+                align-items: center;
+            }
 
-        .faq-answer.active {
-            max-height: 500px;
-            padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
+            .contract-addresses {
+                text-align: center;
+            }
 
-        .faq-question i {
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active i {
-            transform: rotate(180deg);
-        }
-        
-        /* Override theme styles for FAQ page */
-        .page-faq {
-            background: #000;
-            min-height: 100vh;
+            footer img {
+                padding: 0 !important;
+            }
         }
     </style>
 </head>
@@ -153,9 +188,44 @@
                 </div>
             </section>
             
-            <footer id="footer">
-                <!-- Footer will be injected here -->
-            </footer>
+			<footer id="footer">
+				<div class="inner">
+					<div class="container">
+						<div class="footer-content">
+							<div class="footer-left">
+								<a href="/">
+									<svg width="215" height="50" viewBox="0 11.012 54.882 16.987" xmlns="http://www.w3.org/2000/svg">
+									<defs>
+										<style>@import url(https://fonts.googleapis.com/css2?family=Mitr%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700&amp;display=swap);</style>
+									</defs>
+									<text style="fill: rgb(255, 255, 255); font-family: Mitr; font-size: 21px; font-weight: 500; white-space: pre;" x="0.088" y="26.578">ai16z</text>
+									</svg>
+								</a>
+							</div>
+							<div class="footer-right">
+								<div class="contract-addresses">
+									<p><strong>ai16z:</strong> HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC</p>
+									<p><strong>degenai:</strong> Gu3LDkn7Vx3bmCzLafYNKcDxv2mH7YN44NJZFXnypump</p>
+								</div>
+								<ul class="social-networks">
+									<li>
+										<a href="https://x.com/pmairca" class="fab fa-twitter" target="_blank" rel="noopener noreferrer"></a>
+									</li>
+									<li>
+										<a href="https://discord.gg/xe7HtWru" target="_blank" class="fa-brands fa-discord" rel="noopener noreferrer"></a>
+									</li>
+									<li>
+										<a href="https://github.com/ai16z" class="fab fa-github" target="_blank" rel="noopener noreferrer"></a>
+									</li>
+									<li>
+										<a href="https://www.daos.fun/HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC" class="fas fa-project-diagram" target="_blank" rel="noopener noreferrer"></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>>
         </div>
     </div>
 
