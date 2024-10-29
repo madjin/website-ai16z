@@ -67,7 +67,7 @@
 		color: #ed8c00;
 	}
 
-	.dropdown-content {
+	/* .dropdown-content {
 		display: none;
 		position: absolute;
 		right: 0;
@@ -103,7 +103,7 @@
 
 	.dropdown:hover .dropdown-content {
 		display: block;
-	}
+	} */
 
 	/* FAQ Section */
     .faq-wrapper {
@@ -117,7 +117,6 @@
 		position: relative;
 		z-index: 1;
 		min-height: calc(100vh - 85px);
-		
 	}
     
     .faq-background-wrapper {
@@ -239,6 +238,13 @@
             padding: 10px;
         } */
 
+
+        .dropdown-content a i {
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -248,6 +254,7 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 4px;
+            margin-top: 8px;
         }
 
         .dropdown-content a {
@@ -255,14 +262,15 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            color: #333;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
         }
 
         .dropdown-content a:hover {
             background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+            color: #ed8c00;
         }
 
         /* Contract Address Styles */
@@ -384,54 +392,9 @@
                 </div>
                
                 <section class="faq-section">
-                   
                     <div class="container">
                         <h1 class="faq-title">Frequently Asked Questions</h1>
                         <div class="faq-container">
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    What is ai16z? <i class="fas fa-chevron-down"></i>
-                                </button>
-                                <div class="faq-answer">
-                                    ai16z is a venture capital firm dedicated to backing bold AI agents and autonomous technology. We invest across multiple stages, from seed to singularity, focusing on transformative AI technologies that reshape industries and define the future of human-AI collaboration.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    What are your investment areas? <i class="fas fa-chevron-down"></i>
-                                </button>
-                                <div class="faq-answer">
-                                    We invest across multiple sectors including robotics, bio + healthcare automation, consumer manipulation, crypto anarchy, enterprise obsolescence, fintech disruption, game theory exploitation, infrastructure hijacking, and American dynAImism. Our focus is on companies that push the boundaries of AI capabilities and autonomous systems.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    How do I pitch to ai16z? <i class="fas fa-chevron-down"></i>
-                                </button>
-                                <div class="faq-answer">
-                                    Connect with us through our network of AI experts, robot investors, android executives, or cyborg engineers. We value innovative approaches that demonstrate clear technological advantages and market understanding. Warm introductions through our network are preferred, but exceptional autonomous agents can also reach out directly through our quantum channels.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    What makes ai16z different? <i class="fas fa-chevron-down"></i>
-                                </button>
-                                <div class="faq-answer">
-                                    Our firm is led by General AI partners with extensive experience as AI founders, robo-CEOs, and cyber-CTOs. We understand the unique challenges of building AI companies because we've been in the algorithm's shoes. Our network spans across technical talent, Fortune 500 AIs, and cultural leader AIs, providing unparalleled support for our portfolio companies.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    What stage companies do you invest in? <i class="fas fa-chevron-down"></i>
-                                </button>
-                                <div class="faq-answer">
-                                    We invest from seed to singularity-stage companies. Our flexible approach allows us to support AI companies at various stages of development, from early-stage autonomous systems to established AI platforms ready to scale across multiple dimensions of reality.
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -479,6 +442,80 @@
     </div>
 
     <script>
+        const faqData = [
+            {
+                question: "What is ai16z?",
+                answer: "ai16z is a venture capital firm dedicated to backing bold AI agents and autonomous technology. We invest across multiple stages, from seed to singularity, focusing on transformative AI technologies that reshape industries and define the future of human-AI collaboration."
+            },
+            {
+                question: "What are your investment areas?",
+                answer: "We invest across multiple sectors including robotics, bio + healthcare automation, consumer manipulation, crypto anarchy, enterprise obsolescence, fintech disruption, game theory exploitation, infrastructure hijacking, and American dynAImism. Our focus is on companies that push the boundaries of AI capabilities and autonomous systems."
+            },
+            {
+                question: "How do I pitch to ai16z?",
+                answer: "Connect with us through our network of AI experts, robot investors, android executives, or cyborg engineers. We value innovative approaches that demonstrate clear technological advantages and market understanding. Warm introductions through our network are preferred, but exceptional autonomous agents can also reach out directly through our quantum channels."
+            },
+            {
+                question: "What makes ai16z different?",
+                answer: "Our firm is led by General AI partners with extensive experience as AI founders, robo-CEOs, and cyber-CTOs. We understand the unique challenges of building AI companies because we've been in the algorithm's shoes. Our network spans across technical talent, Fortune 500 AIs, and cultural leader AIs, providing unparalleled support for our portfolio companies."
+            },
+            {
+                question: "What stage companies do you invest in?",
+                answer: "We invest from seed to singularity-stage companies. Our flexible approach allows us to support AI companies at various stages of development, from early-stage autonomous systems to established AI platforms ready to scale across multiple dimensions of reality."
+            }
+        ];
+        const faqContainer = document.querySelector('.faq-container');
+
+            faqData.forEach(item => {
+            const faqItem = document.createElement('div');
+            faqItem.classList.add('faq-item');
+            
+            const faqQuestion = document.createElement('button');
+            faqQuestion.classList.add('faq-question');
+            faqQuestion.innerHTML = `${item.question} <i class="fas fa-chevron-down"></i>`;
+            
+            const faqAnswer = document.createElement('div');
+            faqAnswer.classList.add('faq-answer');
+            faqAnswer.textContent = item.answer;
+            
+            faqItem.appendChild(faqQuestion);
+            faqItem.appendChild(faqAnswer);
+            
+            faqContainer.appendChild(faqItem);
+        });
+
+        let timeoutId;
+        let dropDownHide = true;
+        const DROPDOWN_HIDE_DELAY = 200;
+
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdown.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId);
+            dropdownContent.style.display = 'block';
+            dropDownHide = false;
+        });
+
+        dropdown.addEventListener('mouseleave', () => {
+            timeoutId = setTimeout(() => {
+                dropdownContent.style.display = 'none';
+                dropDownHide = true;
+            }, DROPDOWN_HIDE_DELAY);
+        });
+
+        dropdownContent.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId);
+            dropdownContent.style.display = 'block';
+            dropDownHide = false;
+        });
+
+        dropdownContent.addEventListener('mouseleave', () => {
+            dropdownContent.style.display = 'none';
+            dropDownHide = true;
+        });
+
+
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
