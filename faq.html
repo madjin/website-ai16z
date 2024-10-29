@@ -10,7 +10,6 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="css/shared.css">
     <link rel="stylesheet" id="base-theme-style-css" href="css/theme.css" type="text/css" media="all">
     
     <!-- Favicons -->
@@ -21,11 +20,12 @@
     <meta name="apple-mobile-web-app-title" content="ai16z" />
 
     <style>
-        /* FAQ Specific Styles */
+        /* FAQ Page Specific Styles */
         .faq-section {
             max-width: 800px;
             margin: 60px auto;
             padding: 0 20px;
+            color: #fff;
         }
 
         .faq-title {
@@ -87,6 +87,12 @@
 
         .faq-question.active i {
             transform: rotate(180deg);
+        }
+        
+        /* Override theme styles for FAQ page */
+        .page-faq {
+            background: #000;
+            min-height: 100vh;
         }
     </style>
 </head>
