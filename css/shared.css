@@ -1,0 +1,138 @@
+.dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.dropdown-button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#footer {
+    background: #000;
+    padding: 30px 0;
+}
+
+#footer .inner {
+    padding: 0 15px;
+}
+
+#footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    flex: 0 0 auto;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.contract-addresses {
+    margin: 0;
+    font-family: monospace;
+    color: #fff;
+    text-align: right;
+}
+
+.contract-addresses p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.contract-addresses strong {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.social-networks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.social-networks li {
+    margin: 0;
+}
+
+.social-networks a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.social-networks a:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 767px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .contract-addresses {
+        text-align: center;
+    }
+
+    footer img {
+        padding: 0 !important;
+    }
+
+    .social-networks {
+        justify-content: center;
+    }
+}
